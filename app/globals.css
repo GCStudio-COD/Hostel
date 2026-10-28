@@ -1,26 +1,244 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-xxl: 1536px;
+
+  /* Color Palette Variables for Tailwind utilities */
+  --color-primary: #173A36;
+  --color-primary-dark: #102724;
+  --color-primary-deeper: #132E2A;
+  --color-linen: #F4F1EA;
+  --color-card: #FAF8F5;
+  --color-card-border: #E5DFD3;
+  --color-sand: #E5D4A4;
+  --color-sand-hover: #EDDCB2;
+  --color-gold: #C4BA8F;
+  --color-khaki: #A3A37D;
+  --color-watermark: #29524D;
+  --color-muted: #556962;
+
+  --font-roboto: var(--font-roboto), 'Roboto', sans-serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Color Palette CSS Custom Properties */
+  --color-primary: #173A36;
+  --color-primary-dark: #102724;
+  --color-primary-deeper: #132E2A;
+  --color-linen: #F4F1EA;
+  --color-card: #FAF8F5;
+  --color-card-border: #E5DFD3;
+  --color-sand: #E5D4A4;
+  --color-sand-hover: #EDDCB2;
+  --color-gold: #C4BA8F;
+  --color-khaki: #A3A37D;
+  --color-watermark: #29524D;
+  --color-muted: #556962;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Semantic Mappings */
+  --bg-body: var(--color-linen);
+  --text-body: var(--color-primary);
+  --bg-dark: var(--color-primary);
+  --text-dark: var(--color-linen);
+  --bg-homebanner: var(--color-linen);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-roboto: var(--font-roboto), 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-serif-luxury: 'Cormorant Garamond', Georgia, serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-linen);
+  color: var(--color-primary);
+  font-family: var(--font-roboto), 'Roboto', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Explicit CSS Variable Utility Classes inside utilities layer */
+@layer utilities {
+  .bg-linen {
+    background-color: var(--color-linen);
+  }
+  .text-linen {
+    color: var(--color-linen);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .bg-sand {
+    background-color: var(--color-sand);
+  }
+  .text-sand {
+    color: var(--color-sand);
+  }
+  .bg-card {
+    background-color: var(--color-card);
+  }
+  .border-card-border {
+    border-color: var(--color-card-border);
+  }
+  .text-gold {
+    color: var(--color-gold);
+  }
+  .text-khaki {
+    color: var(--color-khaki);
+  }
+  .text-watermark {
+    color: var(--color-watermark);
+  }
+  .text-muted {
+    color: var(--color-muted);
+  }
+}
+
+/* Homepage Typography: Roboto for all body and general content */
+.font-roboto {
+  font-family: var(--font-roboto), 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+.font-roboto input,
+.font-roboto textarea,
+.font-roboto select,
+.font-roboto button {
+  font-family: inherit;
+}
+
+/* Homepage Title Typography: Preserve current luxury font family for titles */
+.font-roboto h1,
+.font-roboto h2,
+.font-roboto h3,
+.font-roboto .font-luxury {
+  font-family: var(--font-serif-luxury), 'Playfair Display', Georgia, serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-luxury {
+  font-family: var(--font-serif-luxury), 'Playfair Display', Georgia, serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glassmorphism tag helpers matching reference image */
+.glass-pill-tag {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
+.glass-pill-tag:hover {
+  background: rgba(255, 255, 255, 0.38);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Glass card light */
+.glass-card-info {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth hero canvas */
+.hero-canvas {
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-canvas {
+    border-radius: 44px;
+  }
+}
+
+/* Inline Photo Capsule for Headline */
+.headline-capsule {
+  display: inline-flex;
+  vertical-align: middle;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headline-capsule:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Wide Layout Container (Hero canvas & Navigation bar) */
+.app-container-wide {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .app-container-wide {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-container-wide {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container-wide {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .app-container-wide {
+    max-width: 1380px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .app-container-wide {
+    max-width: 1580px;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }

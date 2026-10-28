@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    const backendHost = process.env.BACKEND_HOST || 'http://localhost:5000';
+    return [
+      {
+        source: '/api/:path*',
+        destination: `${backendHost}/api/:path*`,
+      },
+    ];
+  },
   experimental: {
     agentFeedback: true,
   },
