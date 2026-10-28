@@ -57,7 +57,7 @@ export const RoomsSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="stay" className="w-full bg-linen text-primary py-14 sm:py-18 md:py-22 lg:py-24 xl:py-28 transition-colors duration-200">
+    <section id="stay" className="w-full overflow-hidden bg-linen text-primary py-14 sm:py-18 md:py-22 lg:py-24 xl:py-28 transition-colors duration-200">
       <div className="container">
         {/* ================= SECTION HEADER ================= */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 md:mb-14">
