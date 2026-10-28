@@ -30,7 +30,7 @@ export const DiningSection: React.FC = () => {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-14 xl:gap-20 items-center">
           {/* ================= LEFT COLUMN: CAMPUS MESS IMAGE ================= */}
-          <div className="lg:col-span-6 flex justify-center">
+          <div className="lg:col-span-5 flex justify-center">
             <div className="group relative w-full max-w-[620px] lg:max-w-none rounded-[28px] sm:rounded-[34px] md:rounded-[40px] overflow-hidden bg-primary-dark shadow-2xl aspect-[4/4.3] sm:aspect-[4/3.8] lg:aspect-[4/4.2] select-none">
               {/* Photo */}
               <img
@@ -51,16 +51,16 @@ export const DiningSection: React.FC = () => {
           </div>
 
           {/* ================= RIGHT COLUMN: EDITORIAL DETAILS ================= */}
-          <div className="lg:col-span-6 flex flex-col justify-center max-w-xl">
+          <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Eyebrow Label */}
             <p className="text-[10px] sm:text-[11px] md:text-xs font-semibold tracking-[0.28em] uppercase text-gold mb-3 sm:mb-4 select-none">
               Dining &amp; Nutrition
             </p>
 
-            {/* Headline matching typography */}
-            <h2 className="font-luxury font-normal text-linen text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] leading-[1.12] tracking-[-0.015em] mb-4 sm:mb-6">
-              Nutritious, home-style meals <br className="hidden sm:inline" />
-              served fresh <span className="italic font-normal">four times daily.</span>
+            {/* Headline matching typography - 2 lines */}
+            <h2 className="font-luxury font-normal text-linen text-xl sm:text-2xl md:text-3xl lg:text-[2.35rem] xl:text-[2.75rem] 2xl:text-[3rem] leading-[1.2] sm:leading-[1.15] tracking-[-0.015em] mb-4 sm:mb-6">
+              <span className="block">Nutritious, home-style meals</span>
+              <span className="block">served fresh <span className="italic font-normal">four times daily.</span></span>
             </h2>
 
             {/* Subtitle / Description */}
